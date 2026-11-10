@@ -10,6 +10,10 @@
     orgs: Default
     dir_orgs_vars: group_vars/localhost/
 
+  pre_tasks:
+    - name: Debug controller_projects
+      ansible.builtin.debug:
+        msg: hello
   roles:
     - role: infra.aap_configuration_extended.filetree_read
     - role: infra.aap_configuration_extended.object_diff
