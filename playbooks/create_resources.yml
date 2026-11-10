@@ -7,11 +7,7 @@
     aap_password: "{{ vault_aap_password }}"
     aap_hostname: "https://control-826rr.apps.ocpv07.rhdp.net/"
     controller_validate_certs: true
-
-  pre_tasks:
-    - name: Import variables
-      ansible.builtin.include_vars:
-        directory: group_vars/localhost
+    dir_orgs_vars: group_vars/localhost/
 
   roles:
     - role: infra.aap_configuration_extended.filetree_read
