@@ -14,7 +14,9 @@
     - role: infra.aap_configuration_extended.filetree_read
     - role: infra.aap_configuration_extended.object_diff
   post_tasks:
-    - debug: var=controller_projects
+    - name: Debug controller_projects
+      ansible.builtin.debug:
+        var: controller_projects
     # - role: infra.aap_configuration.dispatch
     #   vars:
     #     controller_configuration_dispatcher_roles:
