@@ -1,18 +1,19 @@
 controller_projects:
   - &project
-    name: AAP Resources
+    name: ansible-collection-example (APAC-Ansible-Tech-Sales)
     description: Example collection that has a playbook
-    organization: Default
-    scm_url: https://github.com/APAC-Ansible-Tech-Sales/aap-resource-config-diff-example.git
+    scm_url: https://github.com/APAC-Ansible-Tech-Sales/ansible-collection-example
+    scm_branch: main
     scm_update_on_launch: true
     scm_clean: true
     scm_type: git
     default_environment: Default execution environment
   - <<: *project
-    name: ansible-collection-example (APAC-Ansible-Tech-Sales)
+    name: AAP Resources
     description: Example collection that has a playbook
-    scm_url: https://github.com/APAC-Ansible-Tech-Sales/ansible-collection-example
-    scm_branch: main
+    organization: Default
+    scm_url: https://github.com/APAC-Ansible-Tech-Sales/aap-resource-config-diff-example.git
+    allow_override: true
   - <<: *project
     name: playbook-examples (APAC-Ansible-Tech-Sales)
     description: Playbook examples in GitHub APAC-Ansible-Tech-Sales Org
