@@ -25,7 +25,6 @@
           - {role: controller_users, var: aap_user_accounts, tags: controller_users}
           - {role: controller_host_groups, var: controller_groups, tags: controller_host_groups}
           - {role: controller_hosts, var: controller_hosts, tags: controller_hosts}
-          - {role: controller_applications, var: aap_applications, tags: controller_applications}
           - {role: controller_execution_environments, var: controller_execution_environments, tags: controller_execution_environments}
           - {role: controller_inventory_sources, var: controller_inventory_sources, tags: controller_inventory_sources}
           - {role: controller_inventories, var: controller_inventories, tags: controller_inventories}
