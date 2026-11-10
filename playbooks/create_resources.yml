@@ -1,0 +1,75 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    aap_username: admin
+    aap_password: "{{ vault_aap_password }}"
+    aap_hostname: "https://control-826rr.apps.ocpv07.rhdp.net/"
+    controller_validate_certs: true
+
+  pre_tasks:
+    - name: Import variables
+      ansible.builtin.include_vars:
+        file: "{{ item }}"
+      loop:
+        - group_vars/localhost/vault.yml
+        - group_vars/localhost/{{ resource_file }}.yml
+
+    - name: "Setup authentication (block)"
+      block:
+        - name: "Create a new token using platform username/password"
+          ansible.platform.token:
+            description: 'Token for Automated Management'
+            scope: "write"
+            state: present
+            aap_hostname: "{{ aap_hostname }}"
+            aap_username: "{{ aap_username }}"
+            aap_password: "{{ aap_password }}"
+            aap_validate_certs: "{{ aap_validate_certs | default(controller_validate_certs) }}"
+
+        - name: "Expose aap_token dict for collection roles"
+          ansible.builtin.set_fact:
+            aap_token: "{{ ansible_facts['aap_token'] }}"
+      no_log: "{{ controller_configuration_object_diff_secure_logging }}"
+      when: not (ansible_facts.get('aap_token') or aap_token is defined)
+      tags:
+        - always
+
+  roles:
+    - role: infra.aap_configuration_extended.filetree_read
+    - role: infra.aap_configuration_extended.object_diff
+    - role: infra.aap_configuration.dispatch
+      vars:
+        controller_configuration_dispatcher_roles:
+          - {role: controller_schedules, var: controller_schedules, tags: controller_schedules}
+          - {role: controller_workflow_job_templates, var: controller_workflows, tags: controller_workflow_job_templates}
+          - {role: controller_job_templates, var: controller_templates, tags: controller_job_templates}
+          - {role: controller_roles, var: controller_roles, tags: controller_roles}
+          - {role: controller_teams, var: aap_teams, tags: controller_teams}
+          - {role: controller_users, var: aap_user_accounts, tags: controller_users}
+          - {role: controller_host_groups, var: controller_groups, tags: controller_host_groups}
+          - {role: controller_hosts, var: controller_hosts, tags: controller_hosts}
+          - {role: controller_applications, var: aap_applications, tags: controller_applications}
+          - {role: controller_execution_environments, var: controller_execution_environments, tags: controller_execution_environments}
+          - {role: controller_inventory_sources, var: controller_inventory_sources, tags: controller_inventory_sources}
+          - {role: controller_inventories, var: controller_inventories, tags: controller_inventories}
+          - {role: controller_projects, var: controller_projects, tags: controller_projects}
+          - {role: controller_notification_templates, var: controller_notifications, tags: controller_notification_templates}
+          - {role: controller_credentials, var: controller_credentials, tags: controller_credentials}
+          - {role: controller_credential_types, var: controller_credential_types, tags: controller_credential_types}
+          - {role: controller_organizations, var: aap_organizations, tags: controller_organizations}
+          - {role: controller_instance_groups, var: controller_instance_groups, tags: controller_instance_groups}
+
+  post_tasks:
+    - name: "Delete the Authentication Token used"
+      ansible.platform.token:
+        existing_token: "{{ aap_token }}"
+        state: absent
+        aap_hostname: "{{ aap_hostname }}"
+        aap_username: "{{ aap_username }}"
+        aap_password: "{{ aap_password }}"
+        aap_validate_certs: "{{ aap_validate_certs | default(controller_validate_certs) }}"
+      when:
+        - aap_token is defined
+        - aap_token is mapping

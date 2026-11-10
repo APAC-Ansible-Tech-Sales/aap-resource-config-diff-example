@@ -1,0 +1,8 @@
+---
+collections:
+  - name: infra.aap_configuration
+    version: ">=4.10.0,<5.0.0"
+    source: https://galaxy.ansible.com/api/
+  - name: infra.aap_configuration_extended
+    version: ">=4.10.0,<5.0.0"
+    source: https://galaxy.ansible.com/api/
