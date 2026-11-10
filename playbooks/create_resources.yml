@@ -14,9 +14,9 @@
     - name: Debug controller_projects
       ansible.builtin.debug:
         msg: hello
-  roles:
-    - role: infra.aap_configuration_extended.filetree_read
-    - role: infra.aap_configuration_extended.object_diff
+  # roles:
+  #   - role: infra.aap_configuration_extended.filetree_read
+  #   - role: infra.aap_configuration_extended.object_diff
   post_tasks:
     - name: Debug controller_projects
       ansible.builtin.debug:
