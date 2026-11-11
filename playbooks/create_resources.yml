@@ -4,6 +4,8 @@
   gather_facts: false
   vars:
     controller_validate_certs: true
+    # Org where to create the resources, required to get the Org ID for existing resources in the diff
+    orgs: Engineering
     # This is to include the present state of the resources in the diff
     include_present_state: true
     # This is to protect the orgs from being deleted if they are not empty
