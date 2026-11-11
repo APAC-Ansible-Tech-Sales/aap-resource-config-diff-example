@@ -14,7 +14,7 @@
     - name: Import Variables
       ansible.builtin.include_vars:
         directory: group_vars/localhost
-      tag: always
+      tags: always
   
   roles:
     - role: infra.aap_configuration_extended.object_diff
