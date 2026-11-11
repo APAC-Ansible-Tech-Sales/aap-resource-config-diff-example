@@ -6,13 +6,18 @@
     controller_validate_certs: true
     orgs: Engineering
     dir_orgs_vars: /tmp/
+    # This is to include the present state of the resources in the diff
+    include_present_state: true
+    # This is to protect the orgs from being deleted if they are not empty
+    protect_not_empty_orgs: true
 
   pre_tasks:
     - name: Import Variables
       ansible.builtin.include_vars:
         directory: group_vars/localhost
+      tag: always
+  
   roles:
-    - role: infra.aap_configuration_extended.filetree_read
     - role: infra.aap_configuration_extended.object_diff
     - role: infra.aap_configuration.dispatch
       vars:
