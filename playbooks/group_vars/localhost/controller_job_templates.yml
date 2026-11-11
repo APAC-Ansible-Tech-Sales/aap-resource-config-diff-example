@@ -66,6 +66,3 @@ controller_templates:
   - <<: *jt
     name: CaC Demo JT 19
     description: Dummy JT 19 for CaC idempotency demo
-  - <<: *jt
-    name: CaC Demo JT 20
-    description: Dummy JT 20 for CaC idempotency demo
