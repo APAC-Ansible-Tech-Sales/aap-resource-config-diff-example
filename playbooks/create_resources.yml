@@ -4,7 +4,6 @@
   gather_facts: false
   vars:
     controller_validate_certs: true
-    protect_not_empty_orgs: true
     orgs: Engineering
     dir_orgs_vars: /tmp/
 
