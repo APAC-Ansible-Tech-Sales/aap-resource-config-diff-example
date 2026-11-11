@@ -1,9 +1,9 @@
 ---
 controller_projects:
   - &project
-    name: ansible-collection-example (APAC-Ansible-Tech-Sales)
-    description: Example collection that has a playbook
-    scm_url: https://github.com/APAC-Ansible-Tech-Sales/ansible-collection-example
+    name: Project 1
+    description: Project 1
+    scm_url: https://github.com/APAC-Ansible-Tech-Sales/playbook-examples.git
     scm_branch: main
     scm_update_on_launch: true
     scm_clean: true
@@ -11,8 +11,8 @@ controller_projects:
     default_environment: Default execution environment
     organization: Engineering
   - <<: *project
-    name: playbook-examples (APAC-Ansible-Tech-Sales)
-    description: Playbook examples in GitHub APAC-Ansible-Tech-Sales Org
+    name: Project 2
+    description: Project 2
     scm_url: https://github.com/APAC-Ansible-Tech-Sales/playbook-examples.git
     scm_branch: main
     scm_update_on_launch: false
