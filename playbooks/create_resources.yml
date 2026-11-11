@@ -5,7 +5,6 @@
   vars:
     controller_validate_certs: true
     orgs: Engineering
-    dir_orgs_vars: /tmp/
     # This is to include the present state of the resources in the diff
     include_present_state: true
     # This is to protect the orgs from being deleted if they are not empty
