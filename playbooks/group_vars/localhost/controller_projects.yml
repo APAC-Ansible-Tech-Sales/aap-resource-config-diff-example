@@ -8,7 +8,6 @@ controller_projects:
     scm_clean: true
     scm_type: git
     default_environment: Default execution environment
-    organization: Engineering
   - <<: *project
     name: playbook-examples (APAC-Ansible-Tech-Sales)
     description: Playbook examples in GitHub APAC-Ansible-Tech-Sales Org
