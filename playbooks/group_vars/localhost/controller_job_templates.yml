@@ -1,0 +1,71 @@
+---
+controller_templates:
+  - &jt
+    name: CaC Demo JT 01
+    description: Dummy JT 01 for CaC idempotency demo
+    organization: Engineering
+    job_type: run
+    inventory: CaC Demo Inventory
+    project: ansible-collection-example (APAC-Ansible-Tech-Sales)
+    playbook: playbooks/aap_artifacts/main.yml
+    credentials:
+      - CaC Demo Machine
+    ask_credential_on_launch: false
+    ask_inventory_on_launch: false
+  - <<: *jt
+    name: CaC Demo JT 02
+    description: Dummy JT 02 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 03
+    description: Dummy JT 03 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 04
+    description: Dummy JT 04 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 05
+    description: Dummy JT 05 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 06
+    description: Dummy JT 06 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 07
+    description: Dummy JT 07 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 08
+    description: Dummy JT 08 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 09
+    description: Dummy JT 09 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 10
+    description: Dummy JT 10 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 11
+    description: Dummy JT 11 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 12
+    description: Dummy JT 12 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 13
+    description: Dummy JT 13 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 14
+    description: Dummy JT 14 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 15
+    description: Dummy JT 15 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 16
+    description: Dummy JT 16 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 17
+    description: Dummy JT 17 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 18
+    description: Dummy JT 18 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 19
+    description: Dummy JT 19 for CaC idempotency demo
+  - <<: *jt
+    name: CaC Demo JT 20
+    description: Dummy JT 20 for CaC idempotency demo

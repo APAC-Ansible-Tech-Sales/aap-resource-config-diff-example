@@ -1,0 +1,10 @@
+---
+# Dummy inventory for Engineering CaC / idempotency testing.
+# Change description on a second run to confirm only that object reports changed.
+controller_inventories:
+  - name: CaC Demo Inventory
+    description: Dummy inventory for CaC demo
+    organization: Engineering
+    variables:
+      demo_env: engineering
+      managed_by: cac
