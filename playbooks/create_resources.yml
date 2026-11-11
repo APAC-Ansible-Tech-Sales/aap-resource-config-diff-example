@@ -13,7 +13,7 @@
   pre_tasks:
     - name: Import Variables
       ansible.builtin.include_vars:
-        directory: group_vars/localhost
+        dir: group_vars/localhost
       tags: always
   
   roles:
