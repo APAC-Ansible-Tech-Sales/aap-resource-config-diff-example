@@ -20,7 +20,7 @@ controller_templates:
     description: Dummy JT 03 for CaC idempotency demo
   - <<: *jt
     name: CaC Demo JT 04
-    description: Dummy JT 04 for CaC idempotency demo
+    description: Changed v1
   - <<: *jt
     name: CaC Demo JT 05
     description: Dummy JT 05 for CaC idempotency demo
