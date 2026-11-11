@@ -5,7 +5,7 @@ controller_templates:
     description: Dummy JT 01 for CaC idempotency demo
     organization: Engineering
     job_type: run
-    inventory: CaC Demo Inventory
+    inventory: Demo Inventory
     project: ansible-collection-example (APAC-Ansible-Tech-Sales)
     playbook: playbooks/aap_artifacts/main.yml
     credentials:
