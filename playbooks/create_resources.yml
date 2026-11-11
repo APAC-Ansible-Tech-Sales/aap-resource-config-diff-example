@@ -38,3 +38,8 @@
           - {role: controller_inventories, var: controller_inventories, tags: controller_inventories}
           - {role: controller_notification_templates, var: controller_notifications, tags: controller_notification_templates}
           - {role: controller_instance_groups, var: controller_instance_groups, tags: controller_instance_groups}
+  post_tasks:
+    - name: Debug
+      ansible.builtin.debug:
+        var: controller_configuration_object_diff_tasks
+      tags: always
